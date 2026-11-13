@@ -1,0 +1,64 @@
+/* manualify prototype kit — enough UI to make a believable demo in minutes. Swap tokens to match a brand. */
+:root {
+  --bg: #f6f7fb; --panel: #ffffff; --ink: #0f172a; --sub: #64748b; --line: #e5e7eb;
+  --accent: #4f46e5; --accent-ink: #ffffff; --accent-soft: #eef2ff;
+  --good: #16a34a; --warn: #d97706; --bad: #dc2626;
+  --radius: 12px; --shadow: 0 1px 2px rgba(15,23,42,.06), 0 4px 16px rgba(15,23,42,.05);
+  --font: "Inter", "Noto Sans", "Noto Sans Thai", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font); }
+button, input, select, textarea { font: inherit; color: inherit; }
+.app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+.side { background: var(--panel); border-right: 1px solid var(--line); padding: 22px 16px; display: flex; flex-direction: column; gap: 4px; }
+.brand { font-weight: 800; font-size: 19px; letter-spacing: -.01em; padding: 4px 10px 22px; display: flex; gap: 10px; align-items: center; }
+.brand i { width: 26px; height: 26px; border-radius: 8px; background: var(--accent); display: inline-block; }
+.nav { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 9px; color: var(--sub); cursor: pointer; border: 0; background: none; text-align: left; font-weight: 500; }
+.nav:hover { background: var(--bg); color: var(--ink); }
+.nav.on { background: var(--accent-soft); color: var(--accent); }
+.main { padding: 28px 36px 48px; min-width: 0; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.top h1 { font-size: 26px; margin: 0; letter-spacing: -.02em; }
+.top .sub { color: var(--sub); margin-top: 2px; }
+.row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.grid { display: grid; gap: 16px; }
+.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } .g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px 20px; }
+.card h3 { margin: 0 0 12px; font-size: 15px; }
+.kpi .label { color: var(--sub); font-size: 13px; } .kpi .value { font-size: 30px; font-weight: 700; letter-spacing: -.02em; margin-top: 4px; }
+.delta { font-size: 13px; font-weight: 600; } .delta.up { color: var(--good); } .delta.down { color: var(--bad); }
+.btn { border: 1px solid var(--line); background: var(--panel); padding: 9px 16px; border-radius: 9px; cursor: pointer; font-weight: 600; }
+.btn:hover { border-color: #cbd5e1; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.ghost { background: none; border-color: transparent; color: var(--sub); }
+.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: 13px; font-weight: 600; color: var(--sub); }
+.input, .select { border: 1px solid var(--line); border-radius: 9px; padding: 10px 12px; background: var(--panel); width: 100%; }
+.input:focus, .select:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--bg); color: var(--sub); }
+.badge.good { background: #dcfce7; color: #166534; } .badge.warn { background: #fef3c7; color: #92400e; } .badge.bad { background: #fee2e2; color: #991b1b; } .badge.accent { background: var(--accent-soft); color: var(--accent); }
+.table { width: 100%; border-collapse: collapse; }
+.table th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--sub); font-weight: 600; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.table td { padding: 12px; border-bottom: 1px solid var(--line); }
+.progress { height: 10px; background: var(--bg); border-radius: 999px; overflow: hidden; } .progress > i { display: block; height: 100%; background: var(--accent); border-radius: 999px; transition: width .4s; }
+.bars { display: flex; align-items: flex-end; gap: 14px; height: 220px; padding-top: 10px; }
+.bars .bar { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+.bars .bar i { width: 100%; max-width: 46px; background: var(--accent); border-radius: 8px 8px 3px 3px; transition: height .4s; }
+.bars .bar span { font-size: 12px; color: var(--sub); }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.tab { border: 0; background: none; padding: 10px 14px; cursor: pointer; color: var(--sub); font-weight: 600; border-bottom: 2px solid transparent; }
+.tab.on { color: var(--accent); border-color: var(--accent); }
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.col { background: #eef0f6; border-radius: var(--radius); padding: 12px; min-height: 360px; }
+.col h4 { margin: 2px 4px 12px; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--sub); display: flex; justify-content: space-between; }
+.col.over { outline: 2px dashed var(--accent); outline-offset: -4px; }
+.task { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; box-shadow: var(--shadow); cursor: grab; user-select: none; }
+.task .t { font-weight: 600; } .task .m { color: var(--sub); font-size: 13px; margin-top: 6px; display: flex; justify-content: space-between; }
+.ghost-drag { position: fixed; pointer-events: none; z-index: 1000; opacity: .9; transform: rotate(2deg); width: 280px; }
+.scrim { position: fixed; inset: 0; background: rgba(15,23,42,.35); display: grid; place-items: center; z-index: 100; animation: fade .15s; }
+.modal { background: var(--panel); border-radius: 16px; width: min(520px, 92vw); padding: 24px 26px; box-shadow: 0 20px 60px rgba(15,23,42,.25); }
+.modal h2 { margin: 0 0 18px; font-size: 20px; }
+.modal .actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+.toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 12px; font-weight: 600; z-index: 200; animation: fade .2s; }
+@keyframes fade { from { opacity: 0 } to { opacity: 1 } }
+.muted { color: var(--sub); }

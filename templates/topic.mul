@@ -1,0 +1,20 @@
+# One topic = one short clip (30–90 s). Fill every <<blank>>; `manualify fill <file>` finds targets for you.
+@id     example
+@title  <<title>>
+@budget 45
+@assert warn
+
+cut                       # filmed, then edited out: page loads never reach the viewer
+  go <<path, e.g. />>
+  wait ready
+
+== <<first section>>
+say <<what this screen is for, in one sentence>>
+point <<the thing to look at>> label="<<short label>>"
+
+== <<second section>>
+say <<what we do next and why>>
+click <<button that starts it>> => expect <<what appears>> visible
+type <<field>> "<<value>>"
+click <<save / confirm button>> => expect <<proof it worked>> visible
+say <<the result, and why it matters>>

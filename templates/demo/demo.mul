@@ -1,0 +1,26 @@
+# The demo the customer will watch. Keep it under a minute; one moment per section.
+@id      demo
+@title   <<demo title>>
+@subtitle <<one-line promise>>
+@budget  45
+@assert  warn
+
+cut
+  go /#/home
+  wait ready
+
+== <<moment 1>>
+say <<what the viewer sees first>>
+point #kpi-main label="<<label>>"
+
+== <<moment 2>>
+say <<the action that matters>>
+click #primary-action => expect dialog:"New item" visible
+type #field-name "<<example value>>"
+click button:"Save" => expect "<<example value>>" visible
+
+== <<moment 3>>
+say <<the payoff, in the customer's words>>
+zoom #result pad=60
+point #result label="<<label>>"
+unzoom

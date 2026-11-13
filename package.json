@@ -1,0 +1,54 @@
+{
+  "name": "manualify",
+  "version": "0.1.0",
+  "description": "Script-driven screen recording for web apps: .mul scripts → chunked mp4 → edited video, with assertions while recording and demo-driven development.",
+  "author": "GEPP SA-ARD Co., Ltd.",
+  "license": "MIT",
+  "homepage": "https://github.com/geppthailand/manualify#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geppthailand/manualify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/geppthailand/manualify/issues"
+  },
+  "type": "module",
+  "bin": {
+    "manualify": "bin/manualify.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.51.0"
+  },
+  "keywords": [
+    "screen-recording",
+    "demo",
+    "video",
+    "playwright",
+    "tutorial",
+    "documentation",
+    "llm",
+    "claude-code",
+    "e2e-testing",
+    "prototype"
+  ],
+  "files": [
+    "bin",
+    "src",
+    "templates",
+    "skill",
+    "docs",
+    "examples/taskboard/proto",
+    "examples/taskboard/*.mul",
+    "examples/taskboard/*.md",
+    "examples/taskboard/manualify.config.mjs",
+    "README.md",
+    "AGENTS.md",
+    "LICENSE"
+  ]
+}

@@ -1,0 +1,39 @@
+# Taskboard: the weekly flow, as a 45-second demo for the customer.
+@id      taskboard-weekly
+@title   Taskboard — the weekly flow
+@subtitle See the week, add work, finish it
+@budget  45
+@assert  warn
+
+cut
+  go /#/board
+  wait ready
+
+== The board
+say One **board** shows every task by stage: to do, doing, done
+point #col-todo label="To do" hold=0.9
+point #col-doing label="Doing" hold=0.9
+point #col-done label="Done" hold=0.9
+
+== Add a task
+say Add work in seconds: a **title**, who owns it and when it's due
+click button:"+ New task" => expect dialog:"New task" visible
+type #task-title "Prepare Q4 demo"
+pick #task-who "Ava"
+click button:"Create task" => expect "Prepare Q4 demo" visible; expect dialog:"New task" hidden
+say The new task lands in **To do**, owned by Ava
+
+== Finish it
+say Drag a card to **Done** when it's finished
+drag "Customer interview notes" to=#col-done => expect "Customer interview notes" in #col-done visible
+zoom #weekly-goal pad=60
+say Every finished task counts toward the **weekly goal**
+point #weekly-goal label="9 of 12 this week" hold=1.6
+unzoom
+
+== The trend
+click button:"Reports" => expect heading:"Reports" visible
+say **Reports** show the trend week by week, and who has what open
+point #chart-done label="Done per week" hold=1.4
+shot weekly_chart clip=#chart-done
+point #table-people label="Open vs done" hold=1.6
